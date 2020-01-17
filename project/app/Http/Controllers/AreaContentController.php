@@ -27,23 +27,24 @@ class AreaContentController extends Controller
         return redirect('/admin/area_content');
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
 
         $item = AreaContent::find($id);
         return view('admin.area_content.edit', compact('item'));
-
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
 
         $item = AreaContent::find($id);
         $item->update($request->all());
 
         return redirect('admin/area_content');
-
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
 
         AreaContent::destroy($id);
         return redirect('admin/area_content');

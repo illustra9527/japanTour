@@ -37,7 +37,7 @@ Route::get('/contact', 'FrontController@contact');
 Auth::routes();
 
 //後台
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('/', 'adminController@index')->name('home');
 
