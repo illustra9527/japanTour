@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +13,6 @@
 |
 */
 
-
 //首頁
 Route::get('/', 'FrontController@index');
 
@@ -19,7 +20,7 @@ Route::resource('user', 'UserController');
 
 //最新消息
 Route::get('/news', 'FrontController@news');
-Route::get('/news/{id}','FrontController@news_detail');
+Route::get('/news/{id}', 'FrontController@news_detail');
 
 //產品頁面
 Route::get('/area', 'FrontController@area');
@@ -81,5 +82,3 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
 
 
 });
-
-

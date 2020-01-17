@@ -1,0 +1,5 @@
+Run php artisan key:generate.
+
+Do php artisan config:clear,
+
+Then php artisan config:cache
