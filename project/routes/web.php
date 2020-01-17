@@ -49,13 +49,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     // Route::post('product/update/{id}', 'ProductController@update');
     // Route::post('product/destroy/{id}', 'ProductController@destroy');
 
-    // area 地區管理, 資料固定故不能新增編輯
+    // area 地區管理
     Route::get('area', 'AreaController@index');
-    // Route::get('news/create', 'NewsController@create');
-    // Route::post('news/store', 'NewsController@store');
-    // Route::get('news/edit/{id}', 'NewsController@edit');
-    // Route::post('news/update/{id}', 'NewsController@update');
-    // Route::post('news/destroy/{id}', 'NewsController@destroy');
+    Route::get('area/create', 'AreaController@create');
+    Route::post('area/store', 'AreaController@store');
+    Route::get('area/edit/{id}', 'AreaController@edit');
+    Route::post('area/update/{id}', 'AreaController@update');
+    Route::post('area/destroy/{id}', 'AreaController@destroy');
 
     // area content 地區內容管理
     Route::get('area_content', 'AreaContentController@index');
