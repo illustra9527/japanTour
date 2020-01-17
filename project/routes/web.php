@@ -14,9 +14,7 @@
 
 //首頁
 Route::get('/', 'FrontController@index');
-/* Route::get('/','FrontController@swipers'); */
-/* Route::get('/index', 'FrontController@index_products'); */
-//把 function 塞到同一個controller就好，不用再多用那麼多。
+
 Route::resource('user', 'UserController');
 
 //最新消息

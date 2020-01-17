@@ -41,6 +41,38 @@
                         <li>
                             <a class="nav-link" href="/admin/news">最新消息管理</a>
                         </li>
+                        <li>
+                            <a class="nav-link" href="/admin/news">訂單管理</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/admin/news">會員管理</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navBarMenu" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                地區管理
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navBarMenu">
+                                <a class="dropdown-item" href="/admin/product_type">地圖管理</a>
+                                <a class="dropdown-item" href="/admin/product">地區管理</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navBarMenu" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                商品管理
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navBarMenu">
+                                <a class="dropdown-item" href="/admin/product_type">分類管理</a>
+                                <a class="dropdown-item" href="/admin/product">商品管理</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/admin/news">管理員帳號管理</a>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
