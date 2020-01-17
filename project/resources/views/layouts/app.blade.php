@@ -37,6 +37,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @guest
+
+                    @else
                     <ul class="navbar-nav mr-auto">
                         <li>
                             <a class="nav-link" href="/admin/news">最新消息管理</a>
@@ -74,7 +77,7 @@
                         </li>
 
                     </ul>
-
+                    @endguest
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
