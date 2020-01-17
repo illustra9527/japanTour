@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Map;
 use App\Area;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,9 @@ class AreaController extends Controller
 
     public function edit($id)
     {
+        $maps = Map::all();
         $item = Area::with('map')->find($id);
-        return view('admin.area.edit', compact('item'));
+        return view('admin.area.edit', compact('item','maps' ));
     }
 
     public function update(Request $request, $id)

@@ -80,5 +80,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/order/select/{status}', 'OrderController@select'); // 訂單篩選
     Route::post('/orderChangeStatus/{order_no}', 'OrderController@changeStatus'); //修改訂單狀態
 
+    //帳號管理
+    Route::get('/account', 'AccountController@index');
+    Route::get('/account/create', 'AccountController@create');
+    Route::post('/account/store', 'AccountController@store');
+    Route::get('/account/edit/{id}', 'AccountController@edit');
+    Route::post('/account/update/{id}', 'AccountController@update');
+    Route::post('/account/destroy/{id}', 'AccountController@destroy');
+
 
 });

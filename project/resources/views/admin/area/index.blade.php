@@ -20,7 +20,8 @@
                                 <th style="width:100px;">地方</th>
                                 <th>區域</th>
                                 <th>描述</th>
-                                <th>sort</th>
+                                <th>排序</th>
+                                <th style="width:100px;">功能表</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +31,16 @@
                                 <td> {{ $item->title }} </td>
                                 <td> {{ $item->text }} </td>
                                 <td> {{ $item->sort }} </td>
+                                <td>
+                                    <a href="/admin/area/edit/{{ $item->id }}"
+                                        class="btn btn-success btn-sm">修改</a>
+                                    <a class="btn btn-danger btn-sm" href="#" data-itemid="{{ $item->id }}">刪除</a>
+
+                                    <form class="destroy-form" action="/admin/area/destroy/{{ $item->id }}"
+                                        method="POST" style="display: none;" data-itemid="{{ $item->id }}">
+                                        @csrf
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
 
@@ -51,6 +62,16 @@
             $('#table').DataTable({
                 "order": [1,"desc"]
             });
+
+            $('#table').on('click','.btn-danger', function(){
+            event.preventDefault();
+            var r = confirm("你確定要刪除此項目嗎?");
+            if (r == true ){
+                var itemid = $(this).data("itemid");
+                $(`.destroy-form[data-itemid="${itemid}"]`).submit();
+            }
+
         });
+    });
 </script>
 @endsection

@@ -45,10 +45,7 @@
                             <a class="nav-link" href="/admin/news">最新消息管理</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/admin/Order">訂單管理</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="/admin">會員管理</a>
+                            <a class="nav-link" href="/admin/order">訂單管理</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -67,7 +64,7 @@
                         </li>
 
                         <li>
-                            <a class="nav-link" href="/admin/user">管理員帳號管理</a>
+                            <a class="nav-link" href="/admin/account">管理員帳號管理</a>
                         </li>
 
                     </ul>
