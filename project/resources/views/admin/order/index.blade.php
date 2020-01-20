@@ -14,9 +14,9 @@
                 <div class="card-body">
 
                     <h5><a href="/admin/order" class="badge badge-primary">顯示全部</a>
-                        <a href="/admin/order/select/order_done" class="badge badge-success">已處理</a>
-                        <a href="/admin/order/select/new_order" class="badge badge-danger">未付款</a>
-                        <a href="/admin/order/select/order_paid" class="badge badge-info">已付款未處理</a></h5>
+                        <a href="/admin/order/select/OrderDone" class="badge badge-success">已處理</a>
+                        <a href="/admin/order/select/NewOrder" class="badge badge-danger">未付款</a>
+                        <a href="/admin/order/select/OrderPaid" class="badge badge-info">已付款未處理</a></h5>
                     <hr>
 
                     <table id="order" class="table table-striped table-bordered" style="width:100%">
