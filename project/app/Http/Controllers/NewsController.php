@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -30,7 +31,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $item = News::find($id);
-        return view('admin.news.edit', compact('news_types'));
+        return view('admin.news.edit', compact('item'));
     }
 
     public function update(Request $request, $id)

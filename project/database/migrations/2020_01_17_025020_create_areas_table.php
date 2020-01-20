@@ -18,7 +18,7 @@ class CreateAreasTable extends Migration
             $table->integer('map_id');
             $table->string('title');
             $table->string('text');
-            $table->string('sort')->default('0');
+            $table->integer('sort')->default('0');
             $table->timestamps();
         });
     }
