@@ -14,9 +14,9 @@
                 <div class="card-body">
 
                     <h5><a href="/admin/order" class="badge badge-primary">顯示全部</a>
-                        <a href="/admin/order/select/order_done" class="badge badge-success">已處理</a>
-                        <a href="/admin/order/select/new_order" class="badge badge-danger">未付款</a>
-                        <a href="/admin/order/select/order_paid" class="badge badge-info">已付款未處理</a></h5>
+                        <a href="/admin/order/select/OrderDone" class="badge badge-success">已處理</a>
+                        <a href="/admin/order/select/NewOrder" class="badge badge-danger">未付款</a>
+                        <a href="/admin/order/select/OrderPaid" class="badge badge-info">已付款未處理</a></h5>
                     <hr>
 
                     <table id="order" class="table table-striped table-bordered" style="width:100%">
@@ -56,7 +56,7 @@
 
                                     <a href="#" class="btn btn-info btn-sm" data-itemid="{{ $item->order_no }}">出貨</a>
 
-                                    <form class="ship-form" action="/admin/orderChangeStatus/{{ $item->order_no }}"
+                                    <form class="deal-form" action="/admin/orderChangeStatus/{{ $item->order_no }}"
                                         method="POST" style="display: none;" data-itemid="{{ $item->order_no }}">
                                         @csrf
                                     </form>
@@ -98,6 +98,16 @@
             if (r == true ){
                 var itemid = $(this).data("itemid");
                 $(`.destroy-form[data-itemid="${itemid}"]`).submit();
+            }
+
+        });
+
+        $('#order').on('click','.btn-info', function(){
+            event.preventDefault();
+            var r = confirm("你確定要改為已處理嗎?");
+            if (r == true ){
+                var itemid = $(this).data("itemid");
+                $(`.deal-form[data-itemid="${itemid}"]`).submit();
             }
 
         });
