@@ -17,7 +17,7 @@ class CreateContentBannerImgsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('content_id');
             $table->string('imgs');
-            $table->string('sort')->default('0');
+            $table->integer('sort')->default('0');
             $table->timestamps();
         });
     }

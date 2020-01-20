@@ -15,8 +15,11 @@ class CreatNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('date');
             $table->string('title');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->longText('text');
+            $table->integer('sort');
+            $table->timestamps();
         });
     }
 
