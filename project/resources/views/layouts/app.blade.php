@@ -40,6 +40,8 @@
                     @guest
 
                     @else
+
+                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'super_admin')
                     <ul class="navbar-nav mr-auto">
                         <li>
                             <a class="nav-link" href="/admin/news">最新消息管理</a>
@@ -63,11 +65,19 @@
                             <a class="nav-link" href="/admin/area_content">商品管理</a>
                         </li>
 
+                        @if (Auth::user()->role == 'super_admin')
                         <li>
-                            <a class="nav-link" href="/admin/account">管理員帳號管理</a>
-                        </li>
+                                <a class="nav-link" href="/admin/account">管理員帳號管理</a>
+                            </li>
+                        @endif
+
 
                     </ul>
+
+
+                    @endif
+
+
                     @endguest
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -112,7 +122,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     @yield('js')

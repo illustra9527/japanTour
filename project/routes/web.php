@@ -37,17 +37,13 @@ Route::get('/contact', 'FrontController@contact');
 Auth::routes();
 
 //後台
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 
     Route::get('/', 'adminController@index')->name('home');
 
     // map 地圖管理, 資料固定故不能新增編輯
     Route::get('map', 'MapController@index');
-    // Route::get('product/create', 'ProductController@create');
-    // Route::post('product/store', 'ProductController@store');
-    // Route::get('product/edit/{id}', 'ProductController@edit');
-    // Route::post('product/update/{id}', 'ProductController@update');
-    // Route::post('product/destroy/{id}', 'ProductController@destroy');
+
 
     // area 地區管理
     Route::get('area', 'AreaController@index');
@@ -80,6 +76,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/order/select/{status}', 'OrderController@select'); // 訂單篩選
     Route::post('/orderChangeStatus/{order_no}', 'OrderController@changeStatus'); //修改訂單狀態
 
+
+
+
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'super_admin']], function () {
+
     //帳號管理
     Route::get('/account', 'AccountController@index');
     Route::get('/account/create', 'AccountController@create');
@@ -87,6 +90,4 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/account/edit/{id}', 'AccountController@edit');
     Route::post('/account/update/{id}', 'AccountController@update');
     Route::post('/account/destroy/{id}', 'AccountController@destroy');
-
-
 });

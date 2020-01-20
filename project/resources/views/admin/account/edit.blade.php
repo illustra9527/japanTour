@@ -4,49 +4,66 @@
 
 @endsection
 
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header">地區管理 - create</div>
+                <div class="card-header">帳號管理 - 修改管理員帳號</div>
 
                 <div class="card-body">
-                    <form  method="post" action="/admin/area/update/{{ $item->id }}">
+
+                    <form method="POST" action="/admin/account/update/{{ $item->id }}">
                         @csrf
+
                         <div class="form-group row">
-                            <label for="map_id" class="col-sm-2 col-form-label">區域選擇</label>
-                            <div class="col-sm-10">
-                                <select name="map_id" class="form-control" id="map_id" required>
-                                    @foreach ($maps as $map)
-                                        <option value="{{ $map->id }}" class="form-control"
-                                            @if ( $map->id == $item->map_id ) selected @endif >{{ $map->title }}
-                                    @endforeach
+                            <label for="name" class="col-md-4 col-form-label text-md-right">使用者名稱</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" value="{{ $item->name }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">權限</label>
+
+                            <div class="col-md-6">
+                                <select name="role" name="role" id="role" class=" form-control">
+                                    <option value="admin" @if ( $item->role == 'admin' ) selected
+                                    @endif>管理員</option>
+                                    <option value="super_admin" @if ( $item->role == 'super_admin' ) selected
+                                    @endif>超級管理員</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="title" class="col-sm-2 col-form-label">title</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name="title" value="{{ $item->title }}" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="text" class="col-sm-2 col-form-label">描述</label>
-                            <div class="col-sm-10">
-                                <textarea name="text" id="" cols="30" rows="10" class="form-control">{{ $item->text }}</textarea>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="sort" class="col-sm-2 col-form-label">sort</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="sort" name="sort" value="{{ $item->sort }}">
-                            </div>
-                        </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">修改</button>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">信箱</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ $item->email }}" required autocomplete="email">
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    修改帳號
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -57,6 +74,6 @@
 </div>
 @endsection
 
-@section('js')
 
+@section('js')
 @endsection

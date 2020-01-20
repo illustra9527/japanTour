@@ -4,48 +4,90 @@
 
 @endsection
 
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header">地區管理 - create</div>
+                <div class="card-header">帳號管理 - 新增管理員帳號</div>
 
                 <div class="card-body">
-                    <form  method="post" action="/admin/area/store" enctype="multipart/form-data">
+
+                    <form method="POST" action="/admin/account/store">
                         @csrf
+
                         <div class="form-group row">
-                            <label for="map_id" class="col-sm-2 col-form-label">區域選擇</label>
-                            <div class="col-sm-10">
-                                <select name="map_id" class="form-control" id="map_id" required>
-                                    @foreach ($maps as $item)
-                                        <option value="{{ $item->id }}" class="form-control">{{ $item->title }}</option>
-                                    @endforeach
+                            <label for="name" class="col-md-4 col-form-label text-md-right">使用者名稱</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">權限</label>
+
+                            <div class="col-md-6">
+                                <select name="role" name="role" id="role" class=" form-control">
+                                    <option value="admin">管理員</option>
+                                    <option value="super_admin">超級管理員</option>
                                 </select>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label for="title" class="col-sm-2 col-form-label">title</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name="title" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="text" class="col-sm-2 col-form-label">描述</label>
-                            <div class="col-sm-10">
-                                <textarea name="text" id="" cols="30" rows="10" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="sort" class="col-sm-2 col-form-label">排序</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="sort" name="sort" value="1">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">信箱</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">新增</button>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">密碼</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
+                                    required autocomplete="new-password">
+
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">確認密碼</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    新增帳號
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -56,6 +98,6 @@
 </div>
 @endsection
 
-@section('js')
 
+@section('js')
 @endsection
