@@ -90,4 +90,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'super_admin']], fun
     Route::get('/account/edit/{id}', 'AccountController@edit');
     Route::post('/account/update/{id}', 'AccountController@update');
     Route::post('/account/destroy/{id}', 'AccountController@destroy');
+
+    Route::get('/account/select/{role}', 'AccountController@select');
 });
