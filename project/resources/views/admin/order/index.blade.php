@@ -56,7 +56,7 @@
 
                                     <a href="#" class="btn btn-info btn-sm" data-itemid="{{ $item->order_no }}">出貨</a>
 
-                                    <form class="ship-form" action="/admin/orderChangeStatus/{{ $item->order_no }}"
+                                    <form class="deal-form" action="/admin/orderChangeStatus/{{ $item->order_no }}"
                                         method="POST" style="display: none;" data-itemid="{{ $item->order_no }}">
                                         @csrf
                                     </form>
@@ -98,6 +98,16 @@
             if (r == true ){
                 var itemid = $(this).data("itemid");
                 $(`.destroy-form[data-itemid="${itemid}"]`).submit();
+            }
+
+        });
+
+        $('#order').on('click','.btn-info', function(){
+            event.preventDefault();
+            var r = confirm("你確定要改為已處理嗎?");
+            if (r == true ){
+                var itemid = $(this).data("itemid");
+                $(`.deal-form[data-itemid="${itemid}"]`).submit();
             }
 
         });

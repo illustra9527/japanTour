@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('passport_name');
             $table->string('gender');
             $table->string('total_price');
+            $table->longText('remark');
             $table->string('quantity')->default('1');
             $table->string('status')->default('NewOrder');
             $table->timestamps();

@@ -18,10 +18,9 @@ class OrderController extends Controller
 
     public function detail($order_no){
 
-        $order = Order::where('order_no',$order_no)->with('orderItems')->first();
+        $order = Order::where('order_no',$order_no)->with('order_items')->first();
 
-
-        return view('admin.order.order_detail', compact('order'));
+        return view('admin.order.detail', compact('order'));
     }
 
 
@@ -51,7 +50,7 @@ class OrderController extends Controller
 
         $order = Order::where('order_no', $order_no)->first();
 
-        $order->status = 'order_sent';
+        $order->status = 'OrderDone';
         $order->save();
 
         return redirect()->back();
