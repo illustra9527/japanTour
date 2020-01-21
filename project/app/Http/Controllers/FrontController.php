@@ -13,21 +13,14 @@ class FrontController extends Controller
         return view('front.index');
     }
 
-
-
-    public function news()
+    public function area()
     {
+        return view('front.area');
     }
 
-    public function news_detail($id)
+    public function content()
     {
+        return view('front.content');
     }
 
-    public function products()
-    {
-    }
-
-    public function products_detail($id)
-    {
-    }
 }
