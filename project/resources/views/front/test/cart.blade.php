@@ -9,49 +9,52 @@
 <div class="container">
 
     <h2>cart</h2>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">產品名稱</th>
-                <th scope="col">價錢</th>
-                <th scope="col">數量</th>
-                <th scope="col">小計</th>
-                <th scope="col" style="width:80px">刪除</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($contents as $item)
-            <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $item->name }}</td>
-                <td>{{ $item->price }}</td>
-                <td>
-                    <button type="button" class="btn btn-sm btn-outline-danger productQtyAdd"
-                        data-productid="{{ $item->id }}">＋</button>
-                    <input type="text" class="productQtyChange" value="{{ $item->quantity }}"
-                        style="width:50px; text-align:center;" data-productid="{{ $item->id }}">
-                    <button type="button" class="btn btn-sm btn-outline-danger productQtyMinus"
-                        data-productid="{{ $item->id }}">－</button>
-                </td>
-                <td>{{ $item->quantity * $item->price }}</td>
-                <td>
-                    <button type="button" class="btn btn-sm btn-outline-danger productDelete"
-                        data-productid="{{ $item->id }}">×</button>
-                </td>
-            </tr>
-            @endforeach
-            <tr class="table-warning">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><b>總計</b></td>
-                <td><b>{{ $total }}</b></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+    <form method="post" action="/cartPayment">
+        @csrf
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">產品名稱</th>
+                    <th scope="col">價錢</th>
+                    <th scope="col">數量</th>
+                    <th scope="col">小計</th>
+                    <th scope="col" style="width:80px">刪除</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($contents as $item)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->price }}</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-outline-danger productQtyAdd"
+                            data-productid="{{ $item->id }}">＋</button>
+                        <input type="text" class="productQtyChange" value="{{ $item->quantity }}"
+                            style="width:50px; text-align:center;" data-productid="{{ $item->id }}">
+                        <button type="button" class="btn btn-sm btn-outline-danger productQtyMinus"
+                            data-productid="{{ $item->id }}">－</button>
+                    </td>
+                    <td>{{ $item->quantity * $item->price }}</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-outline-danger productDelete"
+                            data-productid="{{ $item->id }}">×</button>
+                    </td>
+                </tr>
+                @endforeach
+                <tr class="table-warning">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>總計</b></td>
+                    <td><b>{{ $total }}</b></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-outline-dark mt-3">前往付款</button>
+    </form>
 </div>
 
 @endsection
@@ -60,7 +63,7 @@
 
 {{-- 購物車 --}}
 <script>
-        /* 加入購物車按鈕綁定 */
+    /* 加入購物車按鈕綁定 */
         $('.addcart').on('click',function () {
             var product_id = $(this).data('productid');
             console.log(product_id);
@@ -192,6 +195,6 @@
             }
         });
 
-    </script>
+</script>
 
 @endsection
