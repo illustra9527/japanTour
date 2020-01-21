@@ -16,7 +16,7 @@ class CreateOrderItemsTable extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('order_id');
-            $table->integer('area_product_id');
+            $table->integer('product_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateOrderItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_items');
+        // Schema::dropIfExists('order_items');
     }
 }

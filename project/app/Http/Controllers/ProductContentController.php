@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Area;
-use App\AreaContent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class AreaContentController extends Controller
+class ProductContentController extends Controller
 {
     public function index()
     {
@@ -27,10 +24,26 @@ class AreaContentController extends Controller
         //FOR 圖片上傳
         $requsetData = $request->all();
         //上傳檔案
-        $file_name = $request->file('img')->store('Area_content_img', 'public');
+        $file_name = $request->file('img')->store('one_images', 'public');
         $requsetData['img'] = $file_name;
-        AreaContent::create($requsetData);
-        return redirect('/admin/area_content');
+
+        //多個檔案
+        $product_item = Products::create($requsetData);;  //抓產品資料
+        $newproduct_id = $product_item->id;  //讓產品資料ID=PRODUCT_ID
+        $files = $request->file('imgs');  //抓取上傳的檔案 (陣列) imgs欄位
+
+
+        if ($request->hasFile('imgs')) {   //假如有檔案才執行
+            foreach ($files as $file) {   //迴圈抓出單一的file (物件)
+                $path = $file->store('more_images', 'public');  //上傳圖片/抓取圖片路徑+建立資料夾
+                $product_img = new Product_img;   //新增資料進DB (MODEL) 新MODEL(空的)
+                $product_img->product_id = $newproduct_id;  //指向MODEL裡的PRODUCT_ID 會等於 產品的ID
+                $product_img->img = $path;  //指向裡面的IMG 會等於 圖片路徑
+                $product_img->save();  //儲存
+            }
+        }
+
+        return redirect('/admin/products');
     }
 
     public function edit($id)

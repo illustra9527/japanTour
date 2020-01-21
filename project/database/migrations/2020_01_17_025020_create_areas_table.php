@@ -18,6 +18,7 @@ class CreateAreasTable extends Migration
             $table->integer('map_id');
             $table->string('title');
             $table->string('text');
+            $table->string('img');   //產品單張上傳 - 縮圖代表使用  ->  (多張Banner放在AreaBanner表單裡)
             $table->integer('sort')->default('0');
             $table->timestamps();
         });

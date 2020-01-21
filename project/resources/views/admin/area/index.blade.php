@@ -17,23 +17,30 @@
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th style="width:100px;">地方</th>
-                                <th>區域</th>
-                                <th>描述</th>
+                                <th style="width:100px;">區域</th>
+                                <th>區域代表圖片</th>
+                                <th>區域多張Banner</th>
+                                <th>地名</th>
+                                <th style="width:180px;">描述</th>
                                 <th>排序</th>
                                 <th style="width:100px;">功能表</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
+                       
                             <tr>
                                 <td> {{ $item->map->title }} </td>
+                                <td> <img width="130" src="{{ asset('/storage/'.$item->img) }}" alt=""></td>
+                                <td> @foreach ($item->area_banners as $imgs)
+                                    <img width="100" height="70" style="margin: 2px;"
+                                        src="{{ asset('/storage/'.$imgs->imgs) }}" alt="">
+                                    @endforeach</td>
                                 <td> {{ $item->title }} </td>
                                 <td> {{ $item->text }} </td>
                                 <td> {{ $item->sort }} </td>
                                 <td>
-                                    <a href="/admin/area/edit/{{ $item->id }}"
-                                        class="btn btn-success btn-sm">修改</a>
+                                    <a href="/admin/area/edit/{{ $item->id }}" class="btn btn-success btn-sm">修改</a>
                                     <a class="btn btn-danger btn-sm" href="#" data-itemid="{{ $item->id }}">刪除</a>
 
                                     <form class="destroy-form" action="/admin/area/destroy/{{ $item->id }}"

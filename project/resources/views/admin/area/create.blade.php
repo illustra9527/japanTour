@@ -12,30 +12,47 @@
                 <div class="card-header">地區管理 - create</div>
 
                 <div class="card-body">
-                    <form  method="post" action="/admin/area/store" enctype="multipart/form-data">
+                    <form method="post" action="/admin/area/store" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="map_id" class="col-sm-2 col-form-label">區域選擇</label>
                             <div class="col-sm-10">
                                 <select name="map_id" class="form-control" id="map_id" required>
                                     @foreach ($maps as $item)
-                                        <option value="{{ $item->id }}" class="form-control">{{ $item->title }}</option>
+                                    <option value="{{ $item->id }}" class="form-control">{{ $item->title }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label for="title" class="col-sm-2 col-form-label">title</label>
+                            <label for="img" class="col-sm-2 col-form-label">區域代表圖片</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="img" name="img" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="imgs" class="col-sm-2 col-form-label">區域Banner(可多張)</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="imgs" name="imgs[]" multiple required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-2 col-form-label">地名</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="title" name="title" required>
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="text" class="col-sm-2 col-form-label">描述</label>
                             <div class="col-sm-10">
                                 <textarea name="text" id="" cols="30" rows="10" class="form-control"></textarea>
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="sort" class="col-sm-2 col-form-label">排序</label>
                             <div class="col-sm-10">
