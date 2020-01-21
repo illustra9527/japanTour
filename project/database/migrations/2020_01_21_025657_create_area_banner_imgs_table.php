@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSwiperTable extends Migration
+class CreateAreaBannerImgsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateSwiperTable extends Migration
      */
     public function up()
     {
-        Schema::create('swiper', function (Blueprint $table) {
+        Schema::create('area_banner_imgs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('img');
-            $table->string('SEO');
-            $table->integer('sort');
+            $table->integer('area_id');
+            $table->string('imgs');
+            $table->integer('sort')->default('0');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateSwiperTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('swiper');
+        // Schema::dropIfExists('product_banner_imgs');
     }
 }
