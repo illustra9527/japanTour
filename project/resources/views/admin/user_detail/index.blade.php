@@ -15,18 +15,20 @@
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
+                                <th>UID</th>
                                 <th>使用者名稱</th>
                                 <th>E-mail</th>
                                 <th>電話</th>
-                                <th style="width:200px">功能</th>
+                                <th style="width:180px">功能</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
                             <tr>
+                                <td>{{ $user->user_detail->id }}</td>
                                 <td>{{ $user->name }}</td>
-                                <td>{{ $user->user->email }}</td>
-                                <td>{{ $user->phone }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->user_detail->phone }}</td>
 
                                 <td>
                                     <a href="/admin/user_detail/{{ $user->id }}" class="btn btn-success btn-sm">帳號詳情</a>
@@ -54,7 +56,7 @@
 <script>
     $(document).ready(function() {
         $('#table').DataTable({
-            "sort": [1,"desc"]
+            "UID": [1,"desc"]
         });
 
         $('#table').on('click','.btn-danger', function(){

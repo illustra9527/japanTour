@@ -20,14 +20,14 @@ class UserDetail extends Model
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'user_detail';
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -35,7 +35,7 @@ class UserDetail extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'name', 'id_number', 'phone', 'passport_name', 'gender', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'id_number', 'phone', 'passport_name', 'gender', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

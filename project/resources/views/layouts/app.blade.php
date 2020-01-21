@@ -16,6 +16,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -66,12 +69,12 @@
                         </li>
 
                         @if (Auth::user()->role == 'super_admin')
-                            <li>
-                                <a class="nav-link" href="/admin/account">管理員帳號管理</a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="/admin/user_detail">會員帳號管理</a>
-                            </li>
+                        <li>
+                            <a class="nav-link" href="/admin/account">管理員帳號管理</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/admin/user_detail">會員帳號管理</a>
+                        </li>
                         @endif
 
 

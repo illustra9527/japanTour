@@ -32,6 +32,12 @@ Route::get('/about', 'FrontController@about');
 // 聯繫我們
 Route::get('/contact', 'FrontController@contact');
 
+// 會員資料
+Route::post('/user_detail/{id}', function(){
+    return view('front.user_detail');
+});
+
+
 // 購物車
 
 Auth::routes();

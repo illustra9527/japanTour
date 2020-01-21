@@ -8,7 +8,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header">會員管理 - 資料詳情</div>
 
@@ -24,31 +24,30 @@
                         <tbody>
                             <tr>
                                 <td scope="col">身分證</td>
-                                <td>{{ $item->id_number }}</td>
+                                <td>{{ $item->user_detail->id_number }}</td>
                             </tr>
 
                             <tr>
                                 <td scope="col">電話</td>
-                                <td>{{ $item->phone }}</td>
+                                <td>{{ $item->user_detail->phone }}</td>
                             </tr>
 
                             <tr>
                                 <td scope="col">護照名</td>
-                                <td>{{ $item->passport_name }}</td>
+                                <td>{{ $item->user_detail->passport_name }}</td>
                             </tr>
 
                             <tr>
                                 <td scope="col">性別</td>
-                                <td>{{ $item->gender }}</td>
+                                <td>{{ $item->user_detail->gender }}</td>
                             </tr>
 
                             <tr>
                                 <td scope="col">信箱</td>
-                                <td>{{ $item->user->email }}</td>
+                                <td>{{ $item->email }}</td>
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>

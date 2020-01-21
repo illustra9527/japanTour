@@ -46,4 +46,6 @@ class FrontController extends Controller
 
         return view('front.products_detail', compact('product'));
     }
+
+    
 }

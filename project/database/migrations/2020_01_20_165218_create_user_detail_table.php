@@ -19,7 +19,6 @@ class CreateUserDetailTable extends Migration
             $table->unsignedBigInteger('user_id'); // 設定外來鍵
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->string('name');
             $table->string('id_number');
             $table->string('phone');
             // $table->string('email'); users table
