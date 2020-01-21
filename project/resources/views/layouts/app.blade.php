@@ -59,13 +59,13 @@
                                 地區總覽
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navBarMenu">
-                                <a class="dropdown-item" href="/admin/map">地圖</a>
-                                <a class="dropdown-item" href="/admin/area">地區</a>
+                                <a class="dropdown-item" href="/admin/map">區域</a>
+                                <a class="dropdown-item" href="/admin/area">地名</a>
                             </div>
                         </li>
 
                         <li>
-                            <a class="nav-link" href="/admin/area_content">商品管理</a>
+                            <a class="nav-link" href="/admin/product_content">商品管理</a>
                         </li>
 
                         @if (Auth::user()->role == 'super_admin')

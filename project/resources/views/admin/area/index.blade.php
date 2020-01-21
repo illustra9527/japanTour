@@ -20,15 +20,15 @@
                                 <th style="width:100px;">區域</th>
                                 <th>區域代表圖片</th>
                                 <th>區域多張Banner</th>
-                                <th>地名</th>
+                                <th style="width:50px;">地名</th>
                                 <th style="width:180px;">描述</th>
-                                <th>排序</th>
+                                <th style="width:30px;">排序</th>
                                 <th style="width:100px;">功能表</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
-                       
+
                             <tr>
                                 <td> {{ $item->map->title }} </td>
                                 <td> <img width="130" src="{{ asset('/storage/'.$item->img) }}" alt=""></td>

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductContent;
 use Illuminate\Http\Request;
 
 class ProductContentController extends Controller
 {
     public function index()
     {
-        $items = AreaContent::with('area')->get();
-        return view('admin.area_content.index', compact('items'));
+        $items = ProductContent::with('area')->get();
+        return view('admin.product_content.index', compact('items'));
     }
 
     public function create()
     {
-        $items = Area::with('area_contents')->get();
+        $items = ProductContent::with('area_contents')->get();
         return view('admin.area_content.create', compact('items'));
     }
 
@@ -28,7 +29,7 @@ class ProductContentController extends Controller
         $requsetData['img'] = $file_name;
 
         //多個檔案
-        $product_item = Products::create($requsetData);;  //抓產品資料
+        $product_item = ProductContent::create($requsetData);;  //抓產品資料
         $newproduct_id = $product_item->id;  //讓產品資料ID=PRODUCT_ID
         $files = $request->file('imgs');  //抓取上傳的檔案 (陣列) imgs欄位
 
