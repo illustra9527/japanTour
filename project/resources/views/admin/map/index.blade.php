@@ -16,8 +16,8 @@
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th style="width:100px;">序號</th>
-                                <th>title</th>
+                                <th style="width:100px;">排序</th>
+                                <th>區域名稱</th>
                             </tr>
                         </thead>
                         <tbody>
