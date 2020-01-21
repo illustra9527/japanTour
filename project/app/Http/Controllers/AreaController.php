@@ -64,9 +64,43 @@ class AreaController extends Controller
     {
 
         $item = Area::find($id);
-        $item->update($request->all());
+        // $old_image = $item->img; //舊的圖片
+        // dd($old_image);
+        $requsetData = $request->all();
+        if ($request->hasFile('img')) {
+            $old_image = $item->img; //舊的圖片
+            File::delete(public_path() . '/storage/' . $old_image); //刪除舊的圖片
+            $file_name = $request->file('img')->store('area_img', 'public'); //上傳新的圖片
+            $requsetData['img'] = $file_name;
+            $item->update($requsetData);
+        }
+
+        //多個檔案
+        $files = $request->file('imgs');  //抓取上傳的檔案 (陣列) imgs欄位
+        if ($request->hasFile('imgs')) {   //假如有檔案才執行
+
+            $items = AreaBanner::where('area_id', $id)->get();
+            foreach ($items as $item) {
+                $old_images = $item->imgs;
+                File::delete(public_path() . '/storage/' . $old_images); //刪除舊的圖片
+                $item->delete();
+            }
+
+            foreach ($files as $file) {   //迴圈抓出單一的file (物件)
+
+                $path =  $file->store('area_banners', 'public'); //上傳圖片/抓取圖片路徑+建立資料夾
+                $area_imgs = new AreaBanner;   //新增資料進DB (MODEL) 新MODEL(空的)
+                $area_imgs->area_id = $id;  //指向MODEL裡的PRODUCT_ID 會等於 產品的ID
+                $area_imgs->imgs = $path;  //指向裡面的IMG 會等於 圖片路徑
+                $area_imgs->save();  //儲存
+            }
+        }
+
+        $item->update($requsetData);
         return redirect('/admin/area');
     }
+
+
 
     public function destroy($id)
     {
@@ -90,6 +124,12 @@ class AreaController extends Controller
         return redirect('/admin/area');
     }
 
+
+
+
+
+
+
     public function ajax_delete_banner_imgs(Request $request)
     {
         $banner_imgs_id = $request->banner_imgs_id;
@@ -109,7 +149,7 @@ class AreaController extends Controller
         $banner_imgs_id = $request->banner_imgs_id;  //把AJAX的數值抓出來
         $banner_imgs_value = $request->banner_imgs_value;  //把AJAX的數值抓出來
 
-        $BannerImg =  AreaBanner::orderBy('sort', 'asc')->find($banner_imgs_id);  //更新上去資料庫
+        $BannerImg =  AreaBanner::find($banner_imgs_id);  //更新上去資料庫
         $BannerImg->sort = $banner_imgs_value;
         $BannerImg->save();
         echo '{"status":"success","message":"sort change success"}';

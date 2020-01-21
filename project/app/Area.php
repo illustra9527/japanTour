@@ -21,6 +21,6 @@ class Area extends Model
 
     public function area_banners()            //地區的詳細Banner
     {
-        return $this->hasMany('App\AreaBanner', 'area_id');
+        return $this->hasMany('App\AreaBanner', 'area_id')->orderBy('sort', 'desc');
     }
 }

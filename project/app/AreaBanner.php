@@ -12,6 +12,6 @@ class AreaBanner extends Model
 
     public function area()
     {
-        return $this->belongsTo('App\Area', 'area_id')->orderBy('sort', 'desc');
+        return $this->belongsTo('App\Area', 'area_id');
     }
 }

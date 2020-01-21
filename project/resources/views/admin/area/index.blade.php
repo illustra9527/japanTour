@@ -28,7 +28,7 @@
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
-                            {{$item}}
+                       
                             <tr>
                                 <td> {{ $item->map->title }} </td>
                                 <td> <img width="130" src="{{ asset('/storage/'.$item->img) }}" alt=""></td>

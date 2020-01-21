@@ -56,13 +56,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::post('/ajax_delete_banner_imgs', 'AreaController@ajax_delete_banner_imgs');  //多張小圖片排序和刪除
     Route::post('/imgs_change_sort', 'AreaController@imgs_change_sort');  //多張小圖片排序和刪除
 
-    // area content 地區內容管理  已取消
-    // Route::get('area_content', 'AreaContentController@index');
-    // Route::get('area_content/create', 'AreaContentController@create');
-    // Route::post('area_content/store', 'AreaContentController@store');
-    // Route::get('area_content/edit/{id}', 'AreaContentController@edit');
-    // Route::post('area_content/update/{id}', 'AreaContentController@update');
-    // Route::post('area_content/destroy/{id}', 'AreaContentController@destroy');
+    //product_content 地區內容管理  已取消
+    Route::get('product_content', 'ProductContentController@index');
+    Route::get('product_content/create', 'ProductContentController@create');
+    Route::post('product_content/store', 'ProductContentController@store');
+    Route::get('product_content/edit/{id}', 'ProductContentController@edit');
+    Route::post('product_content/update/{id}', 'ProductContentController@update');
+    Route::post('product_content/destroy/{id}', 'ProductContentController@destroy');
 
     // news
     Route::get('news', 'NewsController@index');

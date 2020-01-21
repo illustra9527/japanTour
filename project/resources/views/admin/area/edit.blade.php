@@ -35,7 +35,7 @@
                 <div class="card-header">地區管理 - create</div>
 
                 <div class="card-body">
-                    <form method="post" action="/admin/area/update/{{ $item->id }}">
+                    <form method="post" action="/admin/area/update/{{ $item->id }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="map_id" class="col-sm-2 col-form-label">區域選擇</label>
