@@ -17,6 +17,7 @@ class CreateProductTypesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('area_id');
             $table->string('type_name');
+            $table->integer('sort');
             $table->timestamps();
         });
     }

@@ -13,30 +13,32 @@
                 <div class="card-header">商品內容管理</div>
 
                 <div class="card-body">
-                    <a class="btn btn-primary" href="/admin/area_content/create">新增</a>
+                    <a class="btn btn-primary" href="/admin/product_content/create">新增商品</a>
                     <hr>
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th style="width:100px;">區域</th>
-                                <th>內文</th>
-                                <th>價錢</th>
-                                <th>圖片</th>
-                                <th>功能</th>
+                                <th style="width:100px;">商品類別</th>
+                                <th>商品標題</th>
+                                <th>商品價錢</th>
+                                <th>商品敘述</th>
+                                <th>商品圖片</th>
+                                <th>商品排序</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
                             <tr>
-                                <td> {{ $item->area->title }} </td>
+                                <td> {{ $item->product_type->type_name }} </td>
+                                <td> {{ $item->price }} </td>
                                 <td> {{ $item->title }} </td>
                                 <td> {{ $item->text }} </td>
-                                <td> <img src="{{ asset('/storage/'.$item->img) }}" alt="" width="200px"> </td>
+                                <td> <img width="130" src="{{ asset('/storage/'.$item->img) }}" alt="" width="200px"> </td>
                                 <td>
-                                    <a href="/admin/area_content/edit/{{ $item->id }}" class="btn btn-success btn-sm">修改</a>
+                                    <a href="/admin/product_content/edit/{{ $item->id }}" class="btn btn-success btn-sm">修改</a>
                                     <a class="btn btn-danger btn-sm" href="#" data-itemid="{{ $item->id }}">刪除</a>
 
-                                    <form class="destroy-form" action="/admin/area_content/destroy/{{ $item->id }}"
+                                    <form class="destroy-form" action="/admin/product_content/destroy/{{ $item->id }}"
                                         method="POST" style="display: none;" data-itemid="{{ $item->id }}">
                                         @csrf
                                     </form>

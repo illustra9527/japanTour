@@ -8,7 +8,7 @@ class  ProductType extends Model
 {
 
     protected $table = 'product_types';
-    protected $fillable = ['area_id', 'typeName'];
+    protected $fillable = ['area_id', 'type_name','sort'];
 
     public function area()
     {

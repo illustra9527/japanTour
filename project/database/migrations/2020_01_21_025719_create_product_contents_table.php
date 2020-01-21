@@ -20,7 +20,6 @@ class CreateProductContentsTable extends Migration
             $table->string('title');
             $table->string('text');
             $table->string('price')->default('5000');
-            $table->string('quantity');
             $table->string('sort')->default('0');
             $table->timestamps();
         });
