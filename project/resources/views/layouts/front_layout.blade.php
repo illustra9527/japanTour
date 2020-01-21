@@ -68,7 +68,18 @@
                         <a class="nav-link" href="/products">products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i><span
+                                class="cartTotalQuantity">
+                                @guest
+                                0
+                                @else
+                                <?php
+                                    $userId = auth()->user()->id;
+                                    $cartTotalQuantity = \Cart::session($userId)->getTotalQuantity();
+                                    echo $cartTotalQuantity;
+                                ?>
+                                @endguest
+                            </span></a>
                     </li>
                 </ul>
             </div>

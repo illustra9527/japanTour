@@ -34,7 +34,7 @@ Route::get('/about', 'FrontController@about');
 Route::get('/contact', 'FrontController@contact');
 
 // 會員資料
-Route::post('/user_detail/{id}', function(){
+Route::post('/user_detail/{id}', function () {
     return view('front.user_detail');
 });
 
@@ -42,23 +42,54 @@ Route::post('/user_detail/{id}', function(){
 // 購物車
 Route::get('/cart', 'CartController@cart')->middleware('auth'); //進入購物車 (需要登入)
 
-Route::post('/addCart','CartController@addCart'); //加入購物車
-Route::post('/cartQtyAdd','CartController@cartQtyAdd'); // 商品 +1按鈕
-Route::post('/cartQtyMinus','CartController@cartQtyMinus'); // 商品 -1按鈕
-Route::post('/cartQtyChange','CartController@cartQtyChange'); // 商品數量修改
-Route::post('/cartDelete','CartController@cartDelete'); // 商品數量刪除
-Route::get('/cartCheck','CartController@cartCheck'); // 結帳輸入購買資訊
-Route::post('/cartPayment','CartController@cartPayment'); // 存訂單 帶金流
-Route::get('/cartPaid/{order_no}','CartController@cartPaid'); // 完成結帳畫面
+Route::post('/addCart', 'CartController@addCart'); //加入購物車
+Route::post('/cartQtyAdd', 'CartController@cartQtyAdd'); // 商品 +1按鈕
+Route::post('/cartQtyMinus', 'CartController@cartQtyMinus'); // 商品 -1按鈕
+Route::post('/cartQtyChange', 'CartController@cartQtyChange'); // 商品數量修改
+Route::post('/cartDelete', 'CartController@cartDelete'); // 商品數量刪除
+Route::get('/cartCheck', 'CartController@cartCheck'); // 結帳輸入購買資訊
+Route::post('/cartPayment', 'CartController@cartPayment'); // 存訂單 帶金流
+Route::get('/cartPaid/{order_no}', 'CartController@cartPaid'); // 完成結帳畫面
 
 // for test (Cart)
-Route::get('/product',function(){
 
-    $products = ProductContent::all();
+Route::group(['prefix' => 'test', 'middleware' => ['auth']], function () {
 
-    return view('front.product', compact('products'));
+    Route::get('/product', function () {
+
+        $products = ProductContent::all();
+
+        return view('front.test.product', compact('products'));
+    });
+
+    Route::get('/cart', function () {
+        $userId = auth()->user()->id;
+        $contents = \Cart::session($userId)->getContent()->sort();
+        $total = \Cart::session($userId)->getTotal();
+
+        return view('front.test.cart', compact('contents', 'total'));
+    })->middleware('auth'); //進入購物車 (需要登入)
+
+    // Route::get('/product', function () {
+
+    //     $products = ProductContent::all();
+
+    //     return view('front.test.product', compact('products'));
+    // });
+
+    Route::get('/clean', function(){
+
+        $userId = auth()->user()->id;
+        \Cart::session($userId)->clear();
+
+        return redirect()->back();
+    });
+
 
 });
+
+
+
 
 Auth::routes();
 

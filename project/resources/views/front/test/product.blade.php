@@ -13,7 +13,7 @@
         @foreach ($products as $product)
         <div class="col-3">
             <div class="card">
-                <img src="" class="card-img-top" alt="...">
+                <img src="{{ '/storage/'. $product->img }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ $product->title }}</h5>
                     <p class="card-text">MOMOMOMONEY MONEY </p>
