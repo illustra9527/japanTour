@@ -10,6 +10,7 @@ class FrontController extends Controller
     //index
     public function index()
     {
+        return view('front.index');
     }
 
 
@@ -29,6 +30,4 @@ class FrontController extends Controller
     public function products_detail($id)
     {
     }
-
-    
 }
