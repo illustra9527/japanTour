@@ -92,4 +92,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'super_admin']], fun
     Route::post('/account/destroy/{id}', 'AccountController@destroy');
 
     Route::get('/account/select/{role}', 'AccountController@select');
+
+    //會員管理
+    Route::get('/user_detail', 'UserDetailController@index');
+    Route::get('/user_detail/{id}', 'UserDetailController@detail');
+    Route::post('/user_detail/update/{id}', 'UserDetailController@update');
+    Route::post('/user_detail/destroy/{id}', 'UserDetailController@destroy');
+
 });

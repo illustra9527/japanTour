@@ -66,8 +66,11 @@
                         </li>
 
                         @if (Auth::user()->role == 'super_admin')
-                        <li>
+                            <li>
                                 <a class="nav-link" href="/admin/account">管理員帳號管理</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="/admin/user_detail">會員帳號管理</a>
                             </li>
                         @endif
 

@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">地區內容管理</div>
+                <div class="card-header">商品內容管理</div>
 
                 <div class="card-body">
                     <a class="btn btn-primary" href="/admin/area_content/create">新增</a>
