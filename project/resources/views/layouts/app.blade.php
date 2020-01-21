@@ -56,17 +56,25 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navBarMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                地區總覽
+                                地方總覽
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navBarMenu">
-                                <a class="dropdown-item" href="/admin/map">地圖</a>
-                                <a class="dropdown-item" href="/admin/area">地區</a>
+                                <a class="dropdown-item" href="/admin/map">區域管理</a>
+                                <a class="dropdown-item" href="/admin/area">地名管理</a>
                             </div>
                         </li>
 
-                        <li>
-                            <a class="nav-link" href="/admin/area_content">商品管理</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navBarMenu" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                商品總覽
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navBarMenu">
+                                <a class="dropdown-item" href="/admin/product_type">商品分類</a>
+                                <a class="dropdown-item" href="/admin/product_content">商品內容</a>
+                            </div>
                         </li>
+
 
                         @if (Auth::user()->role == 'super_admin')
                         <li>

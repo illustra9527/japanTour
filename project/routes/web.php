@@ -82,7 +82,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::post('/ajax_delete_banner_imgs', 'AreaController@ajax_delete_banner_imgs');  //多張小圖片排序和刪除
     Route::post('/imgs_change_sort', 'AreaController@imgs_change_sort');  //多張小圖片排序和刪除
 
-    //product_content 地區內容管理  已取消
+    //product_type 產品分類管理
+    Route::get('product_type', 'ProductTypeController@index');
+    Route::get('product_type/create', 'ProductTypeController@create');
+    Route::post('product_type/store', 'ProductTypeController@store');
+    Route::get('product_type/edit/{id}', 'ProductTypeController@edit');
+    Route::post('product_type/update/{id}', 'ProductTypeController@update');
+    Route::post('product_type/destroy/{id}', 'ProductTypeController@destroy');
+
+    //product_content 產品內容管理
     Route::get('product_content', 'ProductContentController@index');
     Route::get('product_content/create', 'ProductContentController@create');
     Route::post('product_content/store', 'ProductContentController@store');

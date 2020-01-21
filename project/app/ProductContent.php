@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductContent extends Model
 {
     protected $table = 'product_contents';
-    protected $fillable = ['type_id', 'img', 'title', 'text', 'price', 'quantity', 'sort'];
+    protected $fillable = ['type_id', 'img', 'title', 'text', 'price', 'sort'];
 
     public function product_type()
     {

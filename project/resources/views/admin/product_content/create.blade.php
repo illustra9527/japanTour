@@ -1,71 +1,72 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
 @endsection
 
 @section('content')
 <div class="container">
-
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">地區內容管理</div>
+            <form method="post" action="/admin/product_content/store" enctype="multipart/form-data">
+                @csrf
 
-                <div class="card-body">
-
-                    <form method="post" action="/admin/area_content/store" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <select class="form-control" name="area_id">
-                                @foreach ($items as $item)
-                                <option value="{{ $item->id }}">{{ $item->title }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Title</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter Title" name="title">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Text</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter Text" name="text">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Price</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter Price" name="price">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Img</label>
-                            <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter Img" name="img">
-
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">送出</button>
-                    </form>
-
+                <div class="form-group row">
+                    <label for="type_id" class="col-sm-2 col-form-label">商品類別</label>
+                    <div class="col-sm-10">
+                        <select name="type_id" class="form-control" id="type_id">
+                            @foreach ($items as $item)
+                            <option value="{{ $item->id }}" class="form-control">{{ $item->type_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-            </div>
+
+                <div class="form-group row">
+                    <label for="img" class="col-sm-2 col-form-label">商品圖片</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="img" name="img">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">商品標題</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="text" class="col-sm-2 col-form-label">商品敘述</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" id="text" name="text" style="height:150px"> </textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="price" class="col-sm-2 col-form-label">商品價錢</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="price" name="price">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="sort" class="col-sm-2 col-form-label">排序</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="sort" name="sort" value="1">
+                    </div>
+                </div>
+
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">送出</button>
+                </div>
         </div>
-
-
-
+        </form>
     </div>
-    @endsection
+</div>
+</div>
+@endsection
 
+@section('js')
 
-    @section('js')
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    @endsection
+@endsection
