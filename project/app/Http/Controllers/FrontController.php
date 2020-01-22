@@ -12,29 +12,17 @@ class FrontController extends Controller
     //index
     public function index()
     {
-        //
+        return view('front.index');
     }
 
-
-
-    public function news()
+    public function area()
     {
-        //
+        return view('front.area');
     }
 
-    public function news_detail($id)
+    public function content()
     {
-        //
-    }
-
-    public function products()
-    {
-        //
-    }
-
-    public function products_detail($id)
-    {
-        //
+        return view('front.content');
     }
 
     /* USER */
@@ -78,6 +66,8 @@ class FrontController extends Controller
 
         return redirect('/test/product');
     }
+
+
 
 
 }

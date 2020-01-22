@@ -1,0 +1,118 @@
+@charset "UTF-8";
+*,
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0%;
+  padding: 0%;
+  position: relative;
+}
+
+#banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#banner .banner_img {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url(富士山SVG背景.svg);
+}
+
+#banner .banner_img img {
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
+.sakura {
+  position: absolute;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
+.navbar {
+  background-color: #ffffff;
+}
+
+.navbar .container {
+  max-width: 1170px;
+}
+
+main #section_1 {
+  width: 100%;
+  height: 100vh;
+  background-color: #c0d4ee;
+}
+
+main #section_1 svg {
+  padding: 20px 0px 0px 0px;
+}
+
+main #section_1 svg path {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main #section_1 svg path:hover {
+  fill: rgba(0, 0, 0, 0.5);
+  -webkit-transform: translate(-5px, -5px);
+  transform: translate(-5px, -5px);
+}
+
+main #section_1 svg .isolation:hover {
+  -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+
+main #section_2 {
+  width: 100%;
+  height: 100vh;
+  background-color: #1D6A96;
+}
+
+footer {
+  width: 100%;
+  background-color: #283B42;
+}
+
+footer .footer_team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footer_team .footer_ul {
+  list-style: none;
+  line-height: 40px;
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .footer_team .footer_ul .team_li {
+  color: #ffffff;
+}
+/*# sourceMappingURL=index.css.map */

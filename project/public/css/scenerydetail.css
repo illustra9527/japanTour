@@ -1,0 +1,219 @@
+.navbar {
+  background-color: #ffffff;
+}
+
+.navbar .container {
+  max-width: 1170px;
+}
+
+#section_1 {
+  background-color: black;
+}
+
+#section_1 .swiper-container {
+  text-align: center;
+  position: relative;
+}
+
+#section_1 .swiper-container .introduction {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 350px);
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+#section_1 .swiper-container .introduction .title {
+  width: 50%;
+}
+
+#section_1 .swiper-container .introduction .introductiontext {
+  width: 50%;
+}
+
+#section_1 .swiper-container .swiper-slide img {
+  width: 100%;
+  height: 80vh;
+}
+
+#section_1 .gallery-top {
+  height: 80%;
+  width: 100%;
+}
+
+#section_1 .gallery-thumbs {
+  height: 20vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 0;
+}
+
+#section_1 .gallery-thumbs .swiper-slide img {
+  height: 100%;
+  opacity: 0.4;
+}
+
+#section_1 .gallery-thumbs .swiper-slide-thumb-active img {
+  opacity: 1;
+}
+
+#section_1 #banner {
+  width: 100%;
+  height: 100vh;
+}
+
+#section_2 {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(21%, rgba(128, 218, 255, 0.7)), color-stop(74%, rgba(64, 148, 255, 0.8)));
+  background: linear-gradient(180deg, rgba(128, 218, 255, 0.7) 21%, rgba(64, 148, 255, 0.8) 74%);
+  background: -o-linear-gradient(180deg, rgba(128, 218, 255, 0.7) 21%, rgba(64, 148, 255, 0.8) 74%);
+  padding: 30px 0px 120px 0px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#section_2 #cloudL {
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  left: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -1;
+}
+
+#section_2 #cloudR {
+  width: 100%;
+  height: 800px;
+  position: absolute;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  right: 0;
+  bottom: 40%;
+  z-index: -1;
+}
+
+#section_2 .container .product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 20px 0px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 50px 0px;
+  border-radius: 50px;
+}
+
+#section_2 .container .product .product_img {
+  width: 50%;
+  padding: 10px 50px;
+  position: relative;
+}
+
+#section_2 .container .product .product_img img:nth-child(1) {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 60px;
+}
+
+#section_2 .container .product .product_img img:nth-child(2) {
+  width: 100%;
+  height: 100%;
+}
+
+#section_2 .container .product .productText {
+  width: 50%;
+  padding: 10px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#section_2 .container .product .productText h2 {
+  text-align: left;
+}
+
+#section_2 .container .product .productText p {
+  text-align: left;
+}
+
+#section_2 .container .product .productText button {
+  width: 150px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#section_2 .container .product:nth-child(2n) .product_img {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+#section_2 .container .product:nth-child(2n) .product_img .productText {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+#section_2 .wave_wrap {
+  height: 500px;
+  margin-top: 265px;
+}
+
+#section_2 .wave_wrap #wave {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  height: 800px;
+}
+
+footer {
+  width: 100%;
+  background-color: #283B42;
+}
+
+footer .footer_team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footer_team .footer_ul {
+  list-style: none;
+  line-height: 40px;
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .footer_team .footer_ul .team_li {
+  color: #ffffff;
+}
+/*# sourceMappingURL=scenerydetail.css.map */

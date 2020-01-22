@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 
 //首頁
 Route::get('/', 'FrontController@index');
+Route::get('/area/{id}', 'FrontController@area');
+Route::get('/content/{id}', 'FrontController@content');
 
 // Route::resource('user', 'UserController');
 
@@ -84,20 +86,18 @@ Route::group(['prefix' => 'test', 'middleware' => ['auth']], function () {
     //     return view('front.test.product', compact('products'));
     // });
 
-    Route::get('/clean', function(){
+    Route::get('/clean', function () {
 
         $userId = auth()->user()->id;
         \Cart::session($userId)->clear();
 
         return redirect()->back();
     });
-
-
 });
 
 // 串接金流
 
-Route::prefix('cart_ecpay')->group(function(){
+Route::prefix('cart_ecpay')->group(function () {
 
     //當消費者付款完成後，綠界會將付款結果參數以幕後(Server POST)回傳到該網址。
     Route::post('notify', 'CartController@notifyUrl')->name('notify');
