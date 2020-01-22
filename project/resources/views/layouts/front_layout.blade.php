@@ -81,6 +81,41 @@
                                 @endguest
                             </span></a>
                     </li>
+
+                    {{--                     @if ($user = Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">{{  }}</a>
+                    </li>
+                    @endif --}}
+
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link nav_logout" href="{{ route('login') }}">登入/註冊</a>
+                    </li>
+                    @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link nav_logout dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                登出
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            <a class="dropdown-item" href="/user_detail">會員資料管理</a>
+                        </div>
+
+                    </li>
+                    @endguest
+
+
+
                 </ul>
             </div>
         </div>

@@ -35,7 +35,7 @@ class UserDetail extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'id_number', 'phone', 'passport_name', 'gender', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'id_number', 'phone', 'first_name','last_name', 'gender', 'passport_number', 'created_at','updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

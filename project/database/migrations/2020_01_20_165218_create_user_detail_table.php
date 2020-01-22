@@ -22,7 +22,9 @@ class CreateUserDetailTable extends Migration
             $table->string('id_number');
             $table->string('phone');
             // $table->string('email'); users table
-            $table->string('passport_name');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('password_number');
             $table->string('gender');
             $table->timestamps();
         });
