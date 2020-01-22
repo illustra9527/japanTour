@@ -26,12 +26,6 @@ class FrontController extends Controller
     }
 
     /* USER */
-    public function user($id)
-    {
-        $user = User::find($id);
-
-        return view('front.user');
-    }
 
     public function user_detail($id)
     {
@@ -64,9 +58,19 @@ class FrontController extends Controller
         $user_detil->save();
 
 
-        return redirect('/test/product');
+        return redirect('/');
     }
 
+
+    public function user_detail_update(Request $request, $id)
+    {
+        // 會員修改會員資料
+
+        $user = UserDetail::find($id);
+        $user->update($request->all());
+
+        return redirect()->back();
+    }
 
 
 
