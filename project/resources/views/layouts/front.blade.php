@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css">
 
-    <link rel="shortcut_icon" href="image/shortcut icon.png">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/indexswiper.css">
+    <link rel="shortcut_icon" href="/image/shortcut icon.png">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/indexswiper.css">
     <!-- Bookstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="image/logo.svg" alt="">
+                <img src="/image/logo.svg" alt="">
                 來日方長</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,12 +73,12 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <img src="image/love.png" alt="">
+                            <img src="/image/love.png" alt="">
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <img src="image/shopping_car.png" alt="">
+                            <img src="/image/shopping_car.png" alt="">
                         </a>
                     </li>
                 </ul>
@@ -115,7 +115,7 @@
 
     <!-- swiper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/js/index.js"></script>
 
 
     @yield('js')

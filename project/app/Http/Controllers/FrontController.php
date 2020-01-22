@@ -16,12 +16,23 @@ class FrontController extends Controller
     public function index()
     {
         $maps =  Map::all();
-        return view('front.index', compact('maps'));
+        $map_1 = Map::first();
+        $map_2 = Map::all()->skip(1)->first();
+        $map_3 = Map::all()->skip(2)->first();
+        $map_4 = Map::all()->skip(3)->first();
+        $map_5 = Map::all()->skip(4)->first();
+        $map_6 = Map::all()->skip(5)->first();
+        $map_7 = Map::all()->skip(6)->first();
+        $map_8 = Map::all()->skip(7)->first();
+        $map_9 = Map::all()->skip(8)->first();
+
+        return view('front.index', compact('map_1','map_2','map_3','map_4','map_5','map_6','map_7','map_8','map_9'));
     }
 
     public function area($id)
     {
         $area = Area::where('id', $id)->with('map')->first();
+        dd( $area);
         return view('front.area', compact('area'));
     }
 
@@ -78,7 +89,4 @@ class FrontController extends Controller
 
         return redirect()->back();
     }
-
-
-
 }
