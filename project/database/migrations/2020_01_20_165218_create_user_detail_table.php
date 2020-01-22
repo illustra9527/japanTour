@@ -24,7 +24,7 @@ class CreateUserDetailTable extends Migration
             // $table->string('email'); users table
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('password_number');
+            $table->string('passpord_number');
             $table->string('gender');
             $table->timestamps();
         });
