@@ -26,13 +26,13 @@ class FrontController extends Controller
         $map_8 = Map::all()->skip(7)->first();
         $map_9 = Map::all()->skip(8)->first();
 
-        return view('front.index', compact('map_1','map_2','map_3','map_4','map_5','map_6','map_7','map_8','map_9'));
+        return view('front.index', compact('map_1', 'map_2', 'map_3', 'map_4', 'map_5', 'map_6', 'map_7', 'map_8', 'map_9'));
     }
 
     public function area($id)
     {
         $area = Area::where('id', $id)->with('map')->first();
-        dd( $area);
+        dd($area);
         return view('front.area', compact('area'));
     }
 
