@@ -168,7 +168,7 @@
         <h1>會員詳細資料</h1>
 
 
-        <form method="post" action="/user_detail/update/{{ $user->user_detail->id }}">
+        <form method="post" action="/user_detail_input/store">
             @csrf
             <h1>請填寫您的會員詳細資料，此為訂購票卷時需要資訊</h1>
 
@@ -182,12 +182,8 @@
                                 <span class="icon-case"><i class="fas fa-venus-mars"></i></span>
                                 <select name="gender" class="form-control" style="width:90%" id="gender" data-rule="required"
                                 data-msg="Vérifiez votre saisie sur les champs : Le champ 'Nom' doit être renseigné.">
-                                    <option value="male" @if ($user->user_detail->gender == 'male')
-                                        selected
-                                    @endif >先生</option>
-                                    <option value="female" @if ($user->user_detail->gender == 'female')
-                                            selected
-                                        @endif>小姐</option>
+                                    <option value="male">先生</option>
+                                    <option value="female">小姐</option>
                                 </select>
                                 <div class="validation"></div>
                             </div>
@@ -198,7 +194,7 @@
                                 <p>姓 (Last Name)<span>* <small>與護照同</small></span></p>
                                 <span class="icon-case"><i class="fa fa-male"></i></span>
                                 <input type="text" name="last_name" id="last_name" data-rule="required"
-                                    data-msg="Vérifiez votre saisie sur les champs : Le champ 'Nom' doit être renseigné." value="{{ $user->user_detail->last_name }}"/>
+                                    data-msg="Vérifiez votre saisie sur les champs : Le champ 'Nom' doit être renseigné." />
                                 <div class="validation"></div>
                             </div>
                         </div>
@@ -207,35 +203,31 @@
                             <p>名 (First Name) <span>*<small>與護照同</small></span></p>
                             <span class="icon-case"><i class="fa fa-user"></i></span>
                             <input type="text" name="first_name" id="first_name" data-rule="required"
-                                data-msg="Vérifiez votre saisie sur les champs : Le champ 'Prénom' doit être renseigné." value="{{ $user->user_detail->first_name }}"/>
+                                data-msg="Vérifiez votre saisie sur les champs : Le champ 'Prénom' doit être renseigné." />
                             <div class="validation"></div>
-                        </div>
-
-                        <div class="form-group col-12">
-                            <p>信箱 <span>*</span></p>
-                            <span class="icon-case"><i class="fa fa-envelope"></i></span>
-                               <span class="form-control" style="padding:5px"> {{ $user->email }}</span>
                         </div>
 
                         <div class="form-group col-12">
                             <p>身分證號碼<span>*</span></p>
                             <span class="icon-case"><i class="fas fa-id-card"></i></i></span>
-                            <span class="form-control" style="padding:5px"> {{ $user->user_detail->id_number }}</span>
-
+                            <input type="text" name="id_number" id="id_number" data-rule="required"
+                                data-msg="Vérifiez votre saisie sur les champs : Le champ 'Société' doit être renseigné." />
+                            <div class="validation"></div>
                         </div>
 
                         <div class="form-group col-12">
                             <p>護照號碼<span>*</span></p>
                             <span class="icon-case"><i class="fa fa-passport"></i></span>
-
-                            <span class="form-control" style="padding:5px"> {{ $user->user_detail->passport_number }}</span>
+                            <input type="text" name="passport_number" id="passport_number" data-rule="required"
+                                data-msg="Vérifiez votre saisie sur les champs : Le champ 'passport_name' doit être renseigné." />
+                            <div class="validation"></div>
                         </div>
 
                         <div class="form-group col-12">
                             <p>手機號碼<span>*</span></p>
                             <span class="icon-case"><i class="fa fa-phone"></i></span>
                             <input type="text" name="phone" id="phone" data-rule="maxlen:10"
-                                data-msg="Vérifiez votre saisie sur les champs : Le champ 'Téléphone' doit être renseigné. Minimum 10 chiffres" value="{{ $user->user_detail->phone }}" />
+                                data-msg="Vérifiez votre saisie sur les champs : Le champ 'Téléphone' doit être renseigné. Minimum 10 chiffres" />
                             <div class="validation"></div>
                         </div>
 
@@ -247,7 +239,7 @@
 
 
             </div>
-            <button type="submit" class="bouton-contact">修改</button>
+            <button type="submit" class="bouton-contact">送出</button>
 
         </form>
 
@@ -292,17 +284,7 @@
                         message: 'Please supply your last name'
                     }
                 }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'Please supply your email address'
-                    },
-                    emailAddress: {
-                        message: 'Please supply a valid email address'
-                    }
-                }
-            },
+            }
             phone: {
                 validators: {
                     notEmpty: {

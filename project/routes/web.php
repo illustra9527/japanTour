@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 //首頁
 Route::get('/', 'FrontController@index');
 
-Route::resource('user', 'UserController');
+// Route::resource('user', 'UserController');
 
 //最新消息
 Route::get('/news', 'FrontController@news');
@@ -33,10 +33,17 @@ Route::get('/about', 'FrontController@about');
 // 聯繫我們
 Route::get('/contact', 'FrontController@contact');
 
-// 會員資料
-Route::post('/user_detail/{id}', function () {
-    return view('front.user_detail');
-});
+// 會員資料 index
+Route::get('/user/{id}', 'FrontController@user');
+
+
+Route::get('/user_detail/{id}', 'FrontController@user_detail');
+
+// 註冊後轉跳detail填寫
+Route::get('/user_detail_input', 'FrontController@user_detail_input')->middleware('auth'); //進入購物車 (需要登入)
+
+// 會員詳細資料儲存
+Route::post('/user_detail_input/store', 'FrontController@user_detail_store');
 
 
 // 購物車
