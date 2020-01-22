@@ -26,8 +26,8 @@ Route::get('/news', 'FrontController@news');
 Route::get('/news/{id}', 'FrontController@news_detail');
 
 //產品頁面
-Route::get('/area', 'FrontController@area');
-Route::get('/area/{id}', 'FrontController@products_detail');
+// Route::get('/area', 'FrontController@area');
+// Route::get('/area/{id}', 'FrontController@products_detail');
 
 // 關於我們
 Route::get('/about', 'FrontController@about');

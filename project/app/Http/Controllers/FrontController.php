@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Map;
+use App\Area;
+use App\ProductType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,17 +13,20 @@ class FrontController extends Controller
     //index
     public function index()
     {
-        return view('front.index');
+        $maps =  Map::all();
+        return view('front.index', compact('maps'));
     }
 
-    public function area()
+    public function area($id)
     {
-        return view('front.area');
+        $area = Area::where('id', $id)->with('map')->first();
+        return view('front.area', compact('area'));
     }
 
-    public function content()
+    public function content($id)
     {
-        return view('front.content');
+        $area =  Area::where('id', $id)->with('area_banners')->first();
+        $product_type = ProductType::where('id', $id)->with('product_contents')->first();
+        return view('front.area_content', compact('area', 'product_type'));
     }
-
 }
