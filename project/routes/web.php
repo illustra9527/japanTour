@@ -19,7 +19,6 @@ Route::get('/', 'FrontController@index');
 Route::get('/area/{id}', 'FrontController@area');
 Route::get('/content/{id}', 'FrontController@content');
 
-// Route::resource('user', 'UserController');
 
 //最新消息
 Route::get('/news', 'FrontController@news');

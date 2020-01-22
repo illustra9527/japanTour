@@ -77,10 +77,20 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <img src="image/shopping_car.png" alt="">
-                        </a>
-                    </li>
+                            <a class="nav-link" href="/cart"><img src="/image/shopping_car.png" alt="">
+                                <span
+                                    class="cartTotalQuantity">
+                                    @guest
+                                    0
+                                    @else
+                                    <?php
+                                        $userId = auth()->user()->id;
+                                        $cartTotalQuantity = \Cart::session($userId)->getTotalQuantity();
+                                        echo $cartTotalQuantity;
+                                    ?>
+                                    @endguest
+                                </span></a>
+                        </li>
                 </ul>
             </div>
         </div>

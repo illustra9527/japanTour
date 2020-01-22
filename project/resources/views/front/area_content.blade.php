@@ -1,13 +1,6 @@
 @extends('layouts.front')
 
 @section('css')
-<!-- Swiper -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css">
-<link rel="stylesheet" href="https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css">
-
-<!-- Bookstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <link rel="stylesheet" href="css/scenerydetail.css">
 @endsection
@@ -64,6 +57,9 @@
     <img id="cloudL" src="./image/scenery/cloudL.png" alt="">
     <img id="cloudR" src="./image/scenery/cloudR.png" alt="">
     <div class="container">
+
+
+        @foreach ($collection as $item)
         <div class="product">
             <div class="product_img">
                 <img class="loveImg1" src="./image/love.png" alt="">
@@ -78,6 +74,10 @@
                 <button class="btn btn-light">加入旅程</button>
             </div>
         </div>
+        @endforeach
+
+
+
         <div class="product">
             <div class="product_img">
                 <img class="loveImg2" src="./image/love.png" alt="">
@@ -100,17 +100,39 @@
 @endsection
 
 @section('js')
-<!-- bootstrap js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-</script>
-
 <!-- swiper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
 <script src="./js/scenerydetail.js"></script>
+
+<!-- 購物車 -->
+<script>
+    /* 加入購物車按鈕綁定 */
+    $('.addcart').on('click',function () {
+        var product_id = $(this).data('productid');
+        console.log(product_id);
+        // $('.cartTotalQuantity').effect("bounce");    // 點擊加入購物車後抖動一下（利用套件）
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: 'POST',
+            url: '/addCart',
+            data: {product_id:product_id},
+            success: function (res) {
+                console.log(res);
+
+                $('.cartTotalQuantity').text(res);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(textStatus + " " + errorThrown);
+            }
+        });
+    });
+
+</script>
 
 @endsection
