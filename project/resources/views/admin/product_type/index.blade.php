@@ -28,6 +28,8 @@
                         <tbody>
                             <a href="/admin/product_type/create" class="btn btn-sm btn-primary">新增商品類別</a>
 
+                            <hr>
+
                             @foreach ($items as $item)
                             <tr>
                                 <td>{{ $item->area->title }}</td>
@@ -37,7 +39,7 @@
                                         class="btn btn-sm btn-success">編輯</a>
                                     {{-- <a href="/admin/news/destroy/{{ $item->id }}" class="btn btn-sm
                                     btn-warning">刪除</a> --}}
-                                    <a class="btn btn-sm btn-warning" href="#" data-del_id="{{ $item->id }}"> 刪除 </a>
+                                    <a class="btn btn-sm btn-danger" href="#" data-del_id="{{ $item->id }}"> 刪除 </a>
 
                                     <form class="destroy_form" action="/admin/product_type/destroy/{{ $item->id }}"
                                         method="POST" data-del_id="{{ $item->id }}" style="display: none;">
@@ -71,7 +73,7 @@
         $('#example').DataTable({
                 "order": [0,"desc"]
             });
-        $('#example').on('click','.btn-warning',function(){
+        $('#example').on('click','.btn-danger',function(){
         event.preventDefault();
         var z = confirm("確定要刪除嗎???");
         if (z == true) {
