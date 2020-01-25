@@ -33,13 +33,23 @@
                             </tr>
 
                             <tr>
-                                <td scope="col">護照名</td>
-                                <td>{{ $item->user_detail->passport_name }}</td>
+                                <td scope="col">護照姓氏</td>
+                                <td>{{ $item->user_detail->last_name }}</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">護照名字</td>
+                                <td>{{ $item->user_detail->first_name }}</td>
                             </tr>
 
                             <tr>
                                 <td scope="col">性別</td>
-                                <td>{{ $item->user_detail->gender }}</td>
+                                <td>    @if ( $item->user_detail->gender === 'male' )
+                                    男
+                                @else
+                                    女
+                                @endif
+
+                                    </td>
                             </tr>
 
                             <tr>
